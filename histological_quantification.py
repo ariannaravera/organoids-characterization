@@ -1,5 +1,5 @@
 """
-ROI-based Cell Analysis Pipeline with Napari
+Histological Quatification
 
 This script provides an interactive pipeline to estimate cell size, 
 segment channels, draw regions of interest (ROIs), and quantify cells 

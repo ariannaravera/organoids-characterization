@@ -1,5 +1,5 @@
 """
-Zo1 Rosette Segmentation and Analysis Pipeline
+Lumen Zo1 Quantification
 
 This script allows converting LIF files to TIFF, cleaning and manually
 correcting Zo1 rosette masks, and quantifying rosettes in microscopy images.

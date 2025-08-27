@@ -1,5 +1,5 @@
 """
-Organoid Morphology Analysis Pipeline
+Organoid Morphology
 
 This script processes grayscale images of organoids, segments them, computes
 morphological features including area, perimeter, circularity, curvature, 

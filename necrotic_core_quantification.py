@@ -1,5 +1,5 @@
 """
-Sholl and Cell Analysis Pipeline
+Necrotic Core Quantification
 
 This script performs Sholl analysis and cell quantification 
 on multi-channel microscopy images. It estimates cell distributions 
