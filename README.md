@@ -4,19 +4,7 @@ This repository contains **four distinct Python pipelines** for analyzing micros
 
 ---
 
-## Table of Contents
- 
-1. [Installation](#installation)  
-2. [Usage](#usage)  
-3. [Sholl and Cell Analysis Pipeline](#sholl-and-cell-analysis-pipeline)  
-4. [Organoid Morphology Analysis Pipeline](#organoid-morphology-analysis-pipeline)  
-5. [Zo1 Rosette Segmentation and Analysis Pipeline](#zo1-rosette-segmentation-and-analysis-pipeline)  
-6. [ROI-based Cell Analysis Pipeline with Napari](#roi-based-cell-analysis-pipeline-with-napari) 
-
----
-
 ## 📖 Installation Guide
-
 
 1. Clone the repository
 ```bash
@@ -49,23 +37,61 @@ pip install -r requirements.txt
 
 4. Run the code
    
-Now you can run the Python scripts or launch the main program depending on your project:
+Now you can run the Python scripts, eg.:
+```bash
+python histological_quantification.py
+```
 
 ---
-**Purpose:**  
+
+## Necrotic Core Quantification
+
+**Purpose:**
 Quantifies cell distributions around a center of mass and performs **Sholl analysis** on multi-channel microscopy images. Generates visual outputs with Sholl circles and contours.
 
-**Key Features:**  
+**Key Features:**
 - Compute center of mass of cells.  
 - Count Caspase3-positive cells in concentric rings.  
 - Generate visualizations with cell contours and Sholl rings.  
 - Process folders of `.tif` images automatically.
 
-**Usage Example:**
-```python
-from sholl_pipeline import cell_analysis_estimation
+---
 
-input_path = "/path/to/tif_images"
-output_path = "/path/to/results"
-cell_analysis_estimation(input_path, output_path)
-```
+## Organoid Morphology
+
+**Purpose:**
+Analyzes grayscale images of organoids, extracting morphological features including area, perimeter, circularity, curvature, and Dirichlet Normal Energy (DNE). Saves results to Excel and generates contour visualizations.
+
+**Key Features:**
+-	Segment organoids using adaptive thresholding and morphological operations.
+-	Compute features: area, perimeter, average radius, circularity, roundness, Feret diameters, curvature, DNE, and transparency.
+-	Smooth contours with Gaussian filters.
+-	Output results to Excel per image.
+
+---
+
+## Lumen Zo1 Quantification
+
+**Purpose:**
+Converts .lif microscopy files to TIFF, segments Zo1 rosettes, allows manual corrections in Napari, and quantifies rosettes including PAX6-positive ones.
+
+**Key Features:**
+-	Convert .lif files to TIFF images with normalization.
+-	Clean binary masks using morphological operations.
+-	Napari-based manual correction of rosettes.
+-	Quantify number, area, and distance of rosettes to DAPI center.
+-	Save results to CSV.
+
+---
+
+## Histological Quantification
+
+**Purpose:**
+Interactive pipeline to draw Regions of Interest (ROIs), segment channels, estimate cell size, and quantify cells and marker expression per ROI.
+
+**Key Features:**
+-	Napari-based manual cell size estimation.
+-	Segment multiple channels (DAPI, Ki67, NeuroD2, PAX6).
+-	Draw ROIs interactively and save masks.
+-	Quantify single and double-positive cells per ROI.
+-	Save results to CSV.
